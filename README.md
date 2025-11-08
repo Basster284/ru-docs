@@ -1,16 +1,18 @@
-# Geode Docs
+# Документация Geode
 
-### [Visit the Docs site](https://docs.geode-sdk.org)
+**Переведено Basster284**
 
-This is the source code for Geode's docs, containing all the hand-written tutorials.
+### [Посетите сайт документации](https://docs.geode-sdk.org)
 
-Class & function documentation is built automatically from [the Geode source code](https://github.com/geode-sdk/geode).
+Это исходный код документации Geode, содержащий все туториалы.
 
-## Building
+Класс & функция документации автоматически собраны из [исходного кода Geode](https://github.com/geode-sdk/geode).
 
-The docs are built using [Flash](https://github.com/geode-sdk/flash). To build the docs, you need Flash, along with [CMake](https://cmake.org/install/) and [Clang](https://clang.llvm.org/).
+## Сборка
 
-To build the docs, you first need to clone Geode, and then clone the docs inside the Geode root, for a folder structure like this:
+Документация была собрана с помощью [Flash](https://github.com/geode-sdk/flash). Чтобы собрать документацию, вам нужен Flash вместе с [CMake](https://cmake.org/install/) и [Clang](https://clang.llvm.org/).
+
+Чтобы собрать документацию, сперва вам нужно клонировать Geode, а затем клонировать документацию внтури корневой папки Geode, структура папок должна выглядеть так:
 
 ```
 geode/
@@ -19,7 +21,7 @@ geode/
     <geode files>
 ```
 
-For example, you can do this with the following commands:
+К примеру, вы сможете создать папки таким образом:
 
 ```
 git clone https://github.com/geode-sdk/geode
@@ -27,14 +29,14 @@ cd geode
 git clone https://github.com/geode-sdk/docs
 ```
 
-Alternatively, you can symlink your local copy of the docs folder to your local copy of the Geode folder.
+Альтернативным методом, вы можете создать символическую ссылку с вашей локальной копии папки с документацией в вашу локальную копию папки Geode.
 
-After building Flash from source using Cargo or installing the latest release, you can build the docs with the following command:
+После сборки Flash из исходного кода используя Cargo или устанавливая последний релиз, вы можете собрать документацию следующей командой:
 
 ```
-flash -i <path/to/geode> -o <relative_output_dir> --overwrite
+flash -i <путь/к/geode> -o <относительная_выходная_директория> --overwrite
 ```
 
-Afterwards, start up a local HTTP server in the folder where you ran Flash.
+После этого, запустите локальный HTTP сервер в директории где вы запускаете Flash.
 
-You should run Flash in the directory you want to build the docs in and use `-o .`, or run it in the parent directory and do `-o <output_dir_name>`.
+Вы должны запустить Flash в директории, в который вы хотите собрать документацию и использовать параметр `-o .`, илм же запустить в директории выше и прописать `-o <имя_выходной_папки>`.

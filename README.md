@@ -10,7 +10,7 @@
 
 ## Сборка
 
-Документация была собрана с помощью [Flash](https://github.com/geode-sdk/flash). Чтобы собрать документацию, вам нужен Flash вместе с [CMake](https://cmake.org/install/) и [Clang](https://clang.llvm.org/).
+Сборка документации работает через [Flash](https://github.com/geode-sdk/flash). Чтобы собрать документацию, вам нужен Flash вместе с [CMake](https://cmake.org/install/) и [Clang](https://clang.llvm.org/).
 
 Чтобы собрать документацию, сперва вам нужно клонировать Geode, а затем клонировать документацию внтури корневой папки Geode, структура папок должна выглядеть так:
 

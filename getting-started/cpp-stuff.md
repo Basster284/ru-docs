@@ -1,21 +1,21 @@
 ---
-title: 1.1. Required C++ Tools
+title: 1.1. Необходимые инструменты C++
 order: 2
 ---
 
-# Required C++ Tools
+# Необходимые инструменты C++
 
-To be able to use the Geode SDK, you **will** need at least the following:
- * [A C++ compiler](#compiler)
- * [CMake](https://cmake.org/download/) - Version 3.29+ is required - make sure to add to PATH when installing on Windows.
- * [Git](https://git-scm.com/downloads) - Hey you. Yes, you! I know a lot of people skip this step **but you will need it**. Don't come at us asking for why you "could not find git for clone of json-populate".
+Чтобы использовать Geode SDK, вам **нужно** как минимум следующее:
+ * [Компилятор C++](#компилятор)
+ * [CMake](https://cmake.org/download/) - версия 3.29+ обязательна - убедитесь что вы добавили в PATH когда устанавливали на Windows.
+ * [Git](https://git-scm.com/downloads) - Эй, ты. Да, ты! Я знаю что большинство людей пропускают этот шаг **но оно тебе надо**. Потом не приходи к нам со словами "не смог найти git для клонирования json-populate".
 
-## Compiler
+## Компилятор
 
 To use the Geode SDK, and in turn make Geometry Dash mods, you will need either:
- * [Visual Studio 2022+](#windows) on Windows
- * [Clang](#macos) on MacOS
- * [A secret third thing](#linux) on Linux
+ * [Visual Studio 2022+](#windows) на Windows
+ * [Clang](#macos) на MacOS
+ * [Секретная третья штука](#linux) на Linux
 
 ### Windows
 

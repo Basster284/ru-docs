@@ -54,18 +54,18 @@ winget upgrade GeodeSDK.GeodeCLI
 
 ---
 
-After installing the CLI, you should now be able to run `geode --version` in your command line and see a version number! (If this doesn't work, try restarting your terminal and/or computer.)
+После установки CLI, вы теперь можете запустить `geode --version` в вашей командной строке и увидеть номер версии! (Если это не сработало, попробуйте перезапустить ваш терминал и/или компьютер.)
 
-It is recommended that you [set up a profile afterwards](#profile-setup).
+Рекомендуется дальнейшая [настройка профиля](#profile-setup).
 
 ## MacOS
 
-You can easily install the CLI via [Brew](https://brew.sh)
+Вы можете легко установить CLI через [Brew](https://brew.sh)
 ```bash
 brew install geode-sdk/geode/geode-cli
 ```
 
-It is recommended that you [set up a profile afterwards](#profile-setup).
+Рекомендуется дальнейшая [настройка профиля](#profile-setup).
 
 ## Linux
 

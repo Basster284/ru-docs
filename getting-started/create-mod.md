@@ -35,7 +35,7 @@ Geode также посмотрит эти файлы в папке мода:
 
 Сейчас, чтобы собрать мод, у вас есть несколько вариантов:
 
-Если вы используете IDE по типу CLion, VScode или Visual studio, см. раздел 'Настройка IDE(/getting-started/ide-setup).
+Если вы используете IDE по типу CLion, VScode или Visual studio, см. раздел ['Настройка IDE'](/getting-started/ide-setup).
 
 Если вы собираете мод на Android, посмотрите [секцию Android](#build-for-android).
 

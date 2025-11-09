@@ -1,13 +1,13 @@
 ---
-title: 1. Prerequisites
+title: 1. Предпосылки
 order: 1
 ---
 
-# Prerequisites
+# Предпосылки
 
-Before getting started developing with the Geode SDK, there are a few prerequisites you should be aware of:
+Перед началом разработки с Geode SDK, учтите следующие предпосылки:
 
- * Prior C++ knowledge is **HIGHLY** recommended. Learning C++ alongside modding is *very* hard.
- * Installing [Geode](https://geode-sdk.org/install/) itself! You want to test your own mods, don't you?
+ * Знание C++ **ОЧЕНЬ** рекомендуется. Изучать C++ одновременно с модингом *очень* сложно.
+ * Установка [Geode](https://geode-sdk.org/install/)! Вы же хотите протестировать свои моды, не так ли?
 
-It is recommended that you follow the tutorials on this chapter in order.
+Рекомендуется читать туториалы в этой главе по порядку.

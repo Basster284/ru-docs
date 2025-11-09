@@ -1,8 +1,8 @@
 ---
-title: Getting Started
+title: Начиная работу
 order: 1
 ---
 
-# Getting Started
+# Начиная работу
 
-Please read through this chapter in order, starting in [Prerequisites](/getting-started/prerequisites.md).
+Пожалуйста, прочитайте эту главу по порядку, начиная с раздела ['Предпосылки'](/getting-started/prerequisites.md).

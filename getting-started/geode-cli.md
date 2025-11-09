@@ -41,15 +41,16 @@ winget upgrade GeodeSDK.GeodeCLI
 
 ---
 
-**(Not Recommended!)** Otherwise, you can manually install the Geode CLI by:
-1. Download the latest Windows release over on [GitHub](https://github.com/geode-sdk/cli/releases/latest)
-1. Extract `geode.exe` into some folder on your computer
-1. Select the executable in File Explorer, Shift + Right-Click it and select `Copy as Path`
-1. Search `Edit the system environment variables` on Windows search. Alternatively, you can open up Control Panel and search for it, then select `Edit the system environment variables` or **to skip straight to step 6 select `Edit environment variables for your account`**.
-1. Click `Environment Variables...`
-1. In the top `User variables` section, select the `Path` variable and click `Edit`
-1. Now click `New` and paste the path of the CLI executable you copied at Step 1. **Remove the `\geode.exe` from the end;** the path has to point to the _directory_ with Geode CLI, not the CLI itself.
-1. Click OK to close the environment variable windows.
+**(Не рекомендуется!)** В противном случае, вы можете самостоятельно установить Geode CLI по этому плану:
+1. Скачайте последний релиз для Windows на [GitHub](https://github.com/geode-sdk/cli/releases/latest)
+1. Извлеките `geode.exe` в какую-нибудь папку на вашем компьютере
+1. Выберите .exe файл в Проводнике, нажмите Shift + ПКМ и выберите `Copy as Path` (`Копировать как путь` на русском)
+1. Поищите `Edit the system environment variables` (`Изменение системных переменных среды` на русском) в поиске Windows. Вы иакже можете открыть Панель управления и поискать, затем выберите `Редактировать системные переменные среды` или **сразу перейдите к шагу 6, выбрав `Переменные среды`**.
+1. Нажмите на `Переменные среды...`
+1. На верху в секции `Переменные среды пользователя для (ваше_имя_пользователя)`, выберите переменную `Path` и нажмите `Редактировать`
+1. Теперь нажмите `Создать`, вставьте путь 
+exe файла CLI, которы1 вы скопировали на шаге 1. **Удалите `\geode.exe` из конца;** путь должен указывать на _папку_ с Geode CLI, а не на сам CLI.
+1. Нажмите ОК чтобы закрыть окно переменных среды.
 
 ---
 

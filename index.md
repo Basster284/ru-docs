@@ -2,37 +2,37 @@
 
 # Geode SDK
 
-**Geode** is a [Geometry Dash](https://store.steampowered.com/app/322170/Geometry_Dash/) mod loader and modding SDK with a modern approach towards mod development. Unlike previous mod loaders, which merely inject the DLLs and let devs handle the rest, Geode aims to be a more comprehensive project, which manages loaded mods & hooks itself. Geode has been built to ensure performance, compatibility, portability and ease of use. For devs, Geode means easy development and portability; for end users, Geode means an uniform and easy experience using mods.
+**Geode** - это и загрузчик и SDK для моддинга [Geometry Dash](https://store.steampowered.com/app/322170/Geometry_Dash/) с современным подходом к разработке модов. В отличии от остальных загрузчиков, которые просто меняли DLLы и заставляли разработчиков заботиться обо всём остальном, Geode нацелен чтобы быть более обширным проектом, который занимается загрузкой модов & хуков самостоятельно. Geode был создан чтобы гарантировать производительность, совместимость, портативность и простоту использования. Для разработчиков, Geode значит лёгкую разработку и портативность; для конечных пользователей, Geode значит постоянный и лёгкий опыт использование модов.
 
-> :warning: These docs are intended for **developers** looking to use Geode. If you're someone who would just like to use mods, [see our homepage](https://geode-sdk.org/install).
+> :warning: Эта документация предназначена для **разработчиков**, которые хотят использовать Geode. Если вы тот кто просто хочет использовать моды, [посетите нашу домашнюю веб-страницу](https://geode-sdk.org/install).
 
-## Why Geode?
+## Почему Geode?
 
-The main goal of Geode is to **end mod incompatibility**. Traditional modding leads very easily to compatability problems, many of which Geode attempts to address with better solutions.
+Главная цель Geode это **покончить с несовместимостью модов**. Традиционный моддинг приводит к проблемам с совместимостью, большинство которых Geode пытается решить решениями получше.
 
-On top of this, and perhaps more interestingly, **Geode provides much better ergonomics for modding**. Instead of having to deal with calling conventions, trampolines, manually setting hooks (likely in another source file), you can have all the code relevant to hooks in a [nice, clean, readable syntax](/tutorials/modify.md) contained within a single source file.
+Вдобавок ко всему этому и что ещё интереснее, **Geode обеспечивает наилучшую эргономику для моддинга**. Вместо того чтобы иметь дело с вызовом конвенций, шаблонами проектирования, ручнлй настройкой хуков (например в другом файле), вы можете иметь код, относящийся к хукам в [хорошем, чистом, читаемом синтаксисе](/tutorials/modify.md), в одном файле.
 
-## Help, Contributing, Etc.
+## Помощь, участие, и т.д.
 
-If you need help using Geode or would like to contribute, feel free to join our [Discord Server](https://discord.gg/9e43WMKzhp).
+Если вам нужна помощь в использовании Geode или у вас есть желание повлиять на проект, заходите в наш [Discord сервер](https://discord.gg/9e43WMKzhp).
 
-Alternatively, if you hate joining Discord servers to work with a framework, you can also just **open up an issue or pull request** on any [Geode repository on Github](https://github.com/orgs/geode-sdk/repositories).
+Ну а если вам не хочется заходить на Discord сервера чтобы работать с фреймворком, вы можете просто **oткрыть issue или pull request** на любом [Geode репозитории на Github](https://github.com/orgs/geode-sdk/repositories).
 
-## Getting Started
+## Начиная
 
-See [Getting Started](/getting-started) for a step by step tutorial on getting started with Geode SDK.
+Почитайте [Начиная](/getting-started) для пошагового туториала как начинать работать с Geode SDK.
 
-See [Handbook](/handbook/chap0) for a beginner-friendly tutorial series on using Geode and GD Modding in general (WIP!!).
+Почитайте [Справочник](/handbook/chap0), в котором есть серия туториалов для начинающих разработчиков в использовании Geode и моддингом GD в целом (WIP!!).
 
-## Credits
+## Благодарности
 
-### Contributors
+### Участники
 
 <a href="https://github.com/geode-sdk/geode/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=geode-sdk/geode" />
 </a>
 
-### Special Thanks
+### Отдельное спасибо
 
  * [NachoBIT](https://github.com/TheNachoBIT)
- * [RobTop Games](https://twitter.com/RobTopGames/) for making this amazing game and providing us and so many others with hours of entertainment ❤
+ * [RobTop Games](https://twitter.com/RobTopGames/) за то что сделал эту замечательную игру и провёл с нами и ещё многими часы уникального времяпровождения ❤

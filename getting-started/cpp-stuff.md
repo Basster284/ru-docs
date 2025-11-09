@@ -12,56 +12,56 @@ order: 2
 
 ## Компилятор
 
-To use the Geode SDK, and in turn make Geometry Dash mods, you will need either:
+Чтобы использовать Geode SDK, и создавать моды на Geometry Dash, вам также нужно:
  * [Visual Studio 2022+](#windows) на Windows
  * [Clang](#macos) на MacOS
  * [Секретная третья штука](#linux) на Linux
 
 ### Windows
 
-Download Visual Studio from [its website](https://visualstudio.microsoft.com/downloads/). If you want **just** the compiler and not the code editor, look for *Build Tools for Visual Studio* further down in the page.
+Скачайте Visual Studio с [веб-сайта](https://visualstudio.microsoft.com/downloads/). Если вы хотите использовать **только** компилятор и не хотите использовать редактор кода, ищите *Build Tools for Visual Studio* ниже на этой странице.
 
-After launching the installer, select **Desktop development with C++**. You may choose other features, but you **will** need at least ***MSVC*** and ***Windows SDK*** installed.
+После запуска установщика, выберите **Desktop development with C++** (**Разработка классических приложений на C++** если у вас установщик на русском). Вы можете выбрать другие фичи, но вам **как минимум** надо иметь установленные ***MSVC*** и ***Windows SDK***.
 
-Once Visual Studio is installed, you should now have a working C++ compiler that is suited for GD mod development.
+После установки Visual Studio, у вас должен быть рабочий C++ компилятор, подходящий для разработки модов на GD.
 
-Please note that Visual Studio **2022** or higher is required. 2019 or lower will not work, as they don't support C++20 properly.
+Убедитесь то что у вас Visual Studio **2022** года или выше. 2019 или ниже не сработают, так как они плохо поддерживают C++20.
 
 ### MacOS
 
-Install [brew](https://brew.sh/) if you don't already have it, and then run:
+Установите [brew](https://brew.sh/) если у вас его всё ещё нет, а затем запустите:
 ```bash
 brew install llvm
 ```
 
 ### Linux
 
-Linux is a bit more complicated, as there's no official Linux release of GD (yet). Of course, you can run the Windows version of GD through software like [wine](https://www.winehq.org/) quite well, which is probably what you're already doing.
+С Linux немного сложнее, так как нет официального релиза GD на Linux (пока что). Конечно, вы можете запустить Windows версию GD через программы по типу [wine](https://www.winehq.org/), чем, скорее всего, вы сейчас и занимаетесь.
 
-Because of that, this guide will set you up to [cross-compile](https://en.wikipedia.org/wiki/Cross_compiler) Windows Geode mods from Linux.
+И из-за этого, гайд настроит [кросс-компиляцию](https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%BE%D1%81%D1%81-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B8%D0%BB%D1%8F%D1%82%D0%BE%D1%80) модов на Windows версию Geode из Linux.
 
-First, besides Git and CMake, make sure you have `clang` and `lld` installed.
+Сперва, кроме Git и CMake, убедитесь что у вас также установленны `clang` и `lld`.
 
-For CMake make sure you have at least version 3.29, some distributions like Debian and Linux Mint ship older versions which are not able to cross-compile Geode mods.
+Для CMake убедитесь что у вас стоит версия минимум 3.29, некоторые дистрибутивы по типу Debian и Linux Mint идут со старыми версиями которые не способны кросс-компилировать моды Geode.
 
-On Ubuntu:
+На Ubuntu:
 
 ```bash
 apt install clang-19 clang-tools-19 lld-19
 ```
 
-On Arch-based systems:
+На системах на базе Arch:
 
 ```bash
 pacman -S clang lld
 ```
 
-The next step will install the Windows SDK and a CMake toolchain. For ease of installation, first install [the Geode CLI](/getting-started/geode-cli.md) and then come back here. If you want to do it manually, you can follow [this guide](https://gist.github.com/matcool/abb65ee59ded3766717c673014c3a2a7).
+Следующим шагом будеь установка Windows SDK и набор инструментов CMake. Для облегчения установки, установите [the Geode CLI](/getting-started/geode-cli.md), а затем вернитесь сюда. Если вы хотите сделать это самостоятельно, вы можете почитать [этот гайд (ТОЛЬКО НА АНГЛИЙСКОМ)](https://gist.github.com/matcool/abb65ee59ded3766717c673014c3a2a7).
 
-After installing the CLI, run this command to install all the needed tools:
+После установки CLI, запустите эту команду чтобы установить необходимые инструменты:
 
 ```bash
 geode sdk install-linux
 ```
 
-Now you can proceed to [setting up Geode CLI](/getting-started/geode-cli.md).
+Теперь вы можете перейти к [настройке CLI](/getting-started/geode-cli.md).

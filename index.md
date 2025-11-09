@@ -1,4 +1,4 @@
-![Geode Logo](https://github.com/geode-sdk.png?size=80) 
+![Логотип Geode](https://github.com/geode-sdk.png?size=80) 
 
 # Geode SDK
 

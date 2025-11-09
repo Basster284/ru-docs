@@ -1,35 +1,35 @@
 ---
-title: 3. Creating and building a new mod
+title: 3. Создание и сборка нового мода
 order: 5
 ---
 
-# Creating a new mod
+# Создание нового мода
 
-After all that setup, you can now create your first mod!
+После долгой настройки вы сможете создать свой первый мод!
 
-To do this, open up a terminal where you want to create your project and run:
+Чтобы сделать это, откройте терминал там, где вы хотите создать мод и исполните:
 ```bash
 geode new
 ```
-Follow the given prompts and afterwards you should have a new folder containing the code for your mod.
+Следуйте указанным инструкциям и после кучи промптов у вас должна появиться новая папка, содержащая код вашего мода.
 
-## Files
+## Файлы
 
-You may notice the project already comes with a few files. Lets go over them:
- * `CMakeLists.txt` - This is the main file for your CMake project.
- * `about.md` - Here you can write a very long description page for your mod, in markdown. Think of it as a README for your mod! This file is technically optional, but highly recommended.
- * `logo.png` - This is the icon for your mod, which shows up in-game. This file is technically optional, but highly recommended.
- * `mod.json` - This json file contains all the metadata about your mod, such as name, version, custom resources, settings, etc. [See this page for detailed info](/mods/configuring)
+Вы можете заметить, что у проекта уже есть несколько файлов. Пройдёмся по ним всем:
+ * `CMakeLists.txt` - Главный файл для вашего CMake прректа.
+ * `about.md` - Здесь вы можете написать очень долгое описание вашего мода, в markdown. Думайте об этом файле как о README к вашему моду! Этот файл технически необязателен, но очень рекомендуется.
+ * `logo.png` - Это иконка для вашего мода, которая появляется в игре. Этот файл технически необязателен, но очень рекомендуется.
+ * `mod.json` - Этот json файл содержит все метаданные о вашем моде, такие как: имя мода, версия, ресурсы, настройки и т.д. См. раздел ['конфигурация мода'](/mods/configuring)
 
-If you plan on releasing your mod, remember to edit the about.md and logo.png files!
+Если вы планируете выпускать свой мод, не забудьте отредактировать about.md и logo.png!
 
-The source code for your mod can be found inside the `src` folder.
+Исходный код вашего мода находится внутри папки `src`.
 
-## Additional Files
+## Дополнительные файлы
 
-Geode will also look for these special files within your mod folder:
- * `changelog.md` - Lists all of the changes between versions to the mod; [see detailed info](/mods/md-files)
- * `support.md` - Free-form info about how to show support to the developer of the mod; [see detailed info](/mods/md-files)
+Geode также посмотрит эти файлы в папке мода:
+ * `changelog.md` - Список всех изменений между версиями мода; См. раздел ['подробная информация'](/mods/md-files)
+ * `support.md` - Файл-информация о том, как оказать поддержку разработчику мода; См. раздел ['подробная информация'](/mods/md-files)
 
 # Build
 

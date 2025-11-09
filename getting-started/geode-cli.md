@@ -69,12 +69,12 @@ brew install geode-sdk/geode/geode-cli
 
 ## Linux
 
-We provide prebuilt Linux binaries in [the CLI releases page](https://github.com/geode-sdk/cli/releases/latest). Since Linux distros differ between each other, you need to figure out yourself how to add this binary to your global path so CMake can find it. As long as `geode --version` works anywhere, everything should be fine.
+Мы предоставляем собранные бинарные файлы для Linux[страница релизов CLI](https://github.com/geode-sdk/cli/releases/latest). Так как дистрибутивы Linux отличаются друг от друга, вам нужно самому выяснить, как добавить бинарник в PATH чтобы CMake смог найти его. Пока работает `geode --version`, всё должно быть нормально.
 
-Once you figure that out, it is recommended that you [set up a profile afterwards](#profile-setup).
+Как только у вас всё получится, рекомендуется дальнейшая [настройка профиля](#profile-setup).
 
-# Profile Setup
+# Настройка профиля
 
-A profile is just an instance of Geometry Dash. The CLI allows keeping multiple separate installations of Geometry Dash at once, though most users will just have a single installation of GD with Geode on it. If you do have GDPSes with Geode on them installed, you can run `geode profile add` to add them to the list of known profiles. You need to have at least one profile set up so your mods can be automatically installed post build.
+Профиль это просто экземпляр Geometry Dash. CLI разрешает держать несколько раздельных установок Geometry Dash, хотя большинство пользователей будут иметь одну установку GD с Geode. Если у вас есть GDPSы с установленными на них Geode, вы можете запустить `geode profile add` чтобы добавить их в список известных профиле. Вам нужно иметь хотя бы один профиль для автоматической установки модов после сборки.
 
-To setup a new profile, simply run the `geode config setup` command on your terminal.
+Чтобы настроить новый профиль, просто запустите в терминале `geode config setup`.

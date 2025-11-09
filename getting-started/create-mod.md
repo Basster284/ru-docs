@@ -31,32 +31,32 @@ Geode также посмотрит эти файлы в папке мода:
  * `changelog.md` - Список всех изменений между версиями мода; См. раздел ['подробная информация'](/mods/md-files)
  * `support.md` - Файл-информация о том, как оказать поддержку разработчику мода; См. раздел ['подробная информация'](/mods/md-files)
 
-# Build
+# Сборка
 
-Now, to build your mod you have a few options:
+Сейчас, чтобы собрать мод, у вас есть несколько вариантов:
 
-If youre using an IDE such as Clion, VScode or Visual Studio, head over to the [IDE Setup](/getting-started/ide-setup) page.
+Если вы используете IDE по типу CLion, VScode или Visual studio, см. раздел 'Настройка IDE(/getting-started/ide-setup).
 
-If you're building for Android, check out the [Android section](#build-for-android).
+Если вы собираете мод на Android, посмотрите [секцию Android](#build-for-android).
 
-Otherwise if you want to build your mods manually from the command line you can do that by simply running these commands in your mod's folder:
+В противном случае, если вы хотите собрать мод самостоятельно из командной строки, запустите эту команду в папке с модом:
 ```bash
-# Configures & builds for the current platform
+# Настраивает & собирает для текущей платформы
 geode build
 ```
 
-> Check out `geode build --help` for other options!
+> Запустите `geode build --help` для других опций!
 
-If you have an issue running that command for whatever reason ([do let us know!](https://github.com/geode-sdk/cli/issues)), you can build your mod the same way using these commands:
+Если у вас проблемы с запуском этой команды по каким-либо причинам ([дайте нам знать!](https://github.com/geode-sdk/cli/issues)), вы можете собрать мод тем же способом, используя эти команды:
 ```bash
-# Configure CMake
+# Настройка CMake
 cmake -B build
 
-# Build the project
+# Сборка проекта
 cmake --build build --config RelWithDebInfo
 ```
 
-If you [created a profile in CLI](/getting-started/geode-cli), then the mod should be automatically installed to GD. If not, then the built `your.mod.geode` package should be in your build folder, from where you can manually install it in-game.
+Если вы [создали профиль в CLI](/getting-started/geode-cli), собранный мод должен автоматически установлен в GD. Если нет, то собранный `ваш.мод.geode` должен быть в папке `build`, где вы можете сами установвиь моды в игру.
 
 ## Build for Android
 

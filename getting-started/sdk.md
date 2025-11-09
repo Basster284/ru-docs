@@ -1,61 +1,61 @@
 ---
-title: 2. Setting up the SDK
+title: 2. Настройка SDK
 order: 4
 ---
 
-# Setting up the SDK
+# Настройка SDK
 
-To install the SDK we will be using the Geode CLI installed on [the previous step](/getting-started/geode-cli).
+Чтобы установить SDK, мы используем установленный Geode CLI [из предыдущего шага](/getting-started/geode-cli).
 
-To download the SDK, run the following command:
+Чтобы скачать SDK, запустите следующую команду:
 ```bash
 geode sdk install
 ```
-This *should* set the `GEODE_SDK` enviroment variable, which can you test after restarting your terminal:
+Это *должно* установить переменную среды `GEODE_SDK`, которую вы можете протестировать после перезапуска терминала:
 ```bash
-# On Windows CMD
+# В Командной строке Windows
 echo %GEODE_SDK%
 
-# On Windows PowerShell
+# В Windows PowerShell
 echo $env:GEODE_SDK
 
-# Elsewhere
+# Где либо ещё
 echo $GEODE_SDK
 ```
 
-If that command prints out the path you installed the SDK to, then it has worked correctly.
+Если команда выводит путь по которому вы установили SDK, значит всё получилось как надо.
 
-To develop mods, you should will need to either build Geode from source, or just download the prebuilt binaries using this command:
+Чтобы разрабатывать моды, вы должны либо собрать Geode из исходников или установить уже готовые бинарники через эту команду:
 ```bash
 geode sdk install-binaries
 ```
 
-## Cache
+## Кэш
 
-It is **highly recommended** to set the [CPM_SOURCE_CACHE](https://github.com/cpm-cmake/CPM.cmake?tab=readme-ov-file#cpm_source_cache) environment variable. This will prevent CMake from flooding your filesystem with duplicates of the same repositories, and allow you to build mods offline (given you have built them online at least once).
+**Очень рекомендуется** установить переменную среды [CPM_SOURCE_CACHE](https://github.com/cpm-cmake/CPM.cmake?tab=readme-ov-file#cpm_source_cache). Это предотвратит CMake заполнять вашу файловую систему дубликатами одинаковых репозиториев и позволит собирать моды оффлайн (вам нужно собрать мод онлайн хотя бы один раз).
 
-To do this, create a directory somewhere permanent, and set the environment variable `CPM_SOURCE_CACHE` to the full path to that folder.
+Чтобы сделать это, создайте где-нибудь папку раз и навсегда, а потом дайте значение переменной среды `CPM_SOURCE_CACHE` полный путь к папке.
 
-## Updating
+## Обновления
 
-You will need to manually update your local SDK every once in a while, which you can do by running this command:
+Вам нужно самому обновлять ваш локальный SDK раз в иногда, что вы можете сделать следующей командой:
 ```bash
 geode sdk update
 ```
 
-Every time you update the SDK, you should update its prebuilt binaries too.
+Каждый раз при обновлении SDK обновляйте и бинарники.
 ```bash
 geode sdk install-binaries
 ```
 
 ---
 
-You can also switch to the **nightly** version, which uses the latest commit.
+По желанию вы сможете перейти со стабильной версии SDK на **nightly** версию, которая использует последний коммит.
 ```bash
 geode sdk update nightly
 ```
 
-Or to go back to stable:
+Ну и на стабильную версию:
 ```bash
 geode sdk update stable
 ```

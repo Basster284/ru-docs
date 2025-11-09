@@ -5,9 +5,9 @@ order: 3
 
 # Geode CLI
 
-Geode has its own CLI tool to aid in many tasks involved in making mods, such as packing assets, generating fonts, managing installed SDK versions, etc.. While it is technically possible to use Geode without the CLI, there is little reason not to install it as **it's required for nearly everything in practice**.
+Geode имеет свой CLI инструмент, который помогает в большинстве задач при создании модов, таких как упаковка ассетов, генерации шрифтов, управлением установленных версий SDK, и т.д. Пока это технически возможно использовать Geode без CLI, причины на это очень малы так как ** на практике он нужен практивчески для всего**.
 
-# Installation
+# Установка
 
 * [Windows](#windows)
 * [MacOS](#macos)
@@ -17,23 +17,23 @@ Geode has its own CLI tool to aid in many tasks involved in making mods, such as
 
 ### Scoop
 
-You can use [Scoop](https://scoop.sh/) to easily install the CLI by doing:
+Вы можете использовать [Scoop](https://scoop.sh/) чтобы легко установить CLI выполняя команды:
 ```bash
 scoop bucket add extras
 scoop install geode-sdk-cli
 ```
-Later on, you can easily update the Geode CLI by doing:
+Позже, вы легко сможете обновить Geode CLI введя следующую команду:
 ```bash
 scoop update geode-sdk-cli
 ```
 
 ### winget
 
-If you prefer, you can also use [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
+Если вы захотите, вы также можете использовать [WinGet](https://learn.microsoft.com/ru-ru/windows/package-manager/winget/):
 ```bash
 winget install GeodeSDK.GeodeCLI
 ```
-To update the CLI, run:
+Для обновления CLI введите это:
 ```bash
 winget upgrade GeodeSDK.GeodeCLI
 ```

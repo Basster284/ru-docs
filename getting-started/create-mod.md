@@ -58,41 +58,40 @@ cmake --build build --config RelWithDebInfo
 
 Если вы [создали профиль в CLI](/getting-started/geode-cli), собранный мод должен автоматически установлен в GD. Если нет, то собранный `ваш.мод.geode` должен быть в папке `build`, где вы можете сами установвиь моды в игру.
 
-## Build for Android
+## Сборка для Android
 
-To build mods for Android you must install the [Android NDK](https://developer.android.com/ndk/downloads). Extract it somewhere and set the `ANDROID_NDK_ROOT` enviroment variable to its path.
+Чтобы собирать моды на Android, вам необходимо установить [Android NDK](https://developer.android.com/ndk/downloads). Извлеките его где-нибудь и установите значение переменной среды `ANDROID_NDK_ROOT` прямой путь к NDK.
 
-> On **Windows** you must also install [Ninja](https://github.com/ninja-build/ninja/releases). If you have Scoop, you can do this via `scoop install ninja`.
+> На **Windows** вы должны вдобавок установить [Ninja](https://github.com/ninja-build/ninja/releases). Если у вас есть Scoop, установите Ninja командой `scoop install ninja`.
 
-You must also get the Geode binaries for Android, you can do this using the CLI:
+Вам также нужно скачать бинарники Geode для Android через CLI:
 ```bash
 geode sdk install-binaries -p android64
-# Or if you're using a 32 bit phone
+# Или если вы используете 32-битный телефон
 geode sdk install-binaries -p android32
 ```
 
-Now you can build your mod for Android via:
+Теперь вы сможете собрать свои моды:
 ```bash
 geode build -p android64
-# Or if you're using a 32 bit phone
+# Или если вы используете 32-битный телефон
 geode build -p android32
 ```
 
-You can then copy the built .geode file from the `build-android64` folder to your phone at this location:
+Вы можете скопировать .geode файл из папки `build-android64` на ваш телефон в эту директорию:
 ```
 /storage/emulated/0/Android/media/com.geode.launcher/game/geode/mods/
 ```
 
-## Building Windows mods on Linux
+## Сборка Windows модов на Linux
 
-If you have followed the steps earlier and installed all the required tools with `geode sdk install-linux`, building should be as simple as on Windows:
+Если вы следовали шагам ранее и установили необходимые инструменты через `geode sdk install-linux`, сборка ничем не будет отличаться от Windows:
 
 ```bash
 geode build
 ```
 
-If you have installed the Windows SDK and the toolchain in a different way, you will have to provide paths to them manually:
-
+Если вы установили Windows SDK и набор инструментов другим путём, вы должны прописаь пути самостоятельно:
 ```bash
 geode build -- -DCMAKE_TOOLCHAIN_FILE=/path/to/clang-msvc-sdk/clang-msvc.cmake -DSPLAT_DIR=/path/to/splat
 ```

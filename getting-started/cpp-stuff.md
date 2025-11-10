@@ -53,7 +53,7 @@ apt install clang-19 clang-tools-19 lld-19
 На системах на базе Arch:
 
 ```bash
-pacman -S clang lld
+pacman -S clang lld llvm
 ```
 
 Следующим шагом будет установка Windows SDK и набор инструментов CMake. Для облегчения установки, установите [the Geode CLI](/getting-started/geode-cli.md), а затем вернитесь сюда. Если вы хотите сделать это самостоятельно, вы можете почитать [этот гайд (ТОЛЬКО НА АНГЛИЙСКОМ)](https://gist.github.com/matcool/abb65ee59ded3766717c673014c3a2a7).

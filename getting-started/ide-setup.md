@@ -1,11 +1,11 @@
 ---
-title: 3.1. IDE Setup
+title: 3.1. Настройка IDE
 order: 6
 ---
 
-# IDE Setup
+# Настройка IDE
 
-You can use one of the following IDEs for developing Geode mods. Using an IDE is highly recommended, as they will give you code completion, intellisense, and simplify developing mods. Our recommended IDE is VS Code, which we also have a [dedicated extension](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) for.
+Вы можете использовать один из приведённых IDE для разработки модов на Geode. Использование IDE крайне рекомендуется, ибо оно даёт подказки к коду, intellisense и вприцнипе упрощает разработку модов. Мы рекомендуем VS Code, для которого мы имеем [отдельное расширение](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode).
 
 * [Visual Studio Code](#visual-studio-code)
 * [Visual Studio](#visual-studio)
@@ -13,38 +13,37 @@ You can use one of the following IDEs for developing Geode mods. Using an IDE is
 
 # Visual Studio Code
 
-* [VSCode on Windows](#vscode-on-windows)
-* [VSCode on Mac](#vscode-on-mac)
-* [VSCode on Linux](#vscode-on-linux)
+* [VSCode на Windows](#vscode-на-windows)
+* [VSCode на Mac](#vscode-на-mac)
+* [VSCode на Linux](#vscode-на-linux)
 
-## VSCode on Windows
+## VSCode на Windows
 
-For VS Code, we recommend a few extensions:
+Для VS Code, мы рекомендуем несколько расширений:
  * [`C/C++`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
  * [`CMake Tools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
- * [`Geode`](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) - Not required, but will provide some nice features.
+ * [`Geode`](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) - Необязательно, но имеет кучу крутых фишек.
+Выпоните несколько шагов, чтобы правильно настроить intellisense и завершение кода (в идеале это делается один раз на один проект) 
 
-There are a few steps you should follow to get proper intellisense and code completion (you should only need to do these once per project, ideally):
+1. В VS Code откройте ваш проект, нажмите F1 и запустите `CMake: Выберите набор`. Это покажет список установленных на компьютере компиляторов.
 
-1. With VS Code open on your project, press F1 and run `CMake: Select a Kit`. This will bring up a list of installed compilers on your machine.
+![Картинка, на которой куча компиляторов, обнаруженных в VS Code](/assets/win_compilers.png)
 
-![Image showing a bunch of compilers CMake detected in VS Code](/assets/win_compilers.png)
+Выберите компилятор **Visual Studio 2022+** (лучше `amd64` версию) или Clang, ничто другое!
 
-You should pick a **Visual Studio 2022+** compiler (specifically the `amd64` version), or Clang, but nothing else!
+> :warning: Это КРИТИЧЕСКИ важно
 
-> :warning: Please pay attention to this
+2. Выберите вариант сборки, нажмите F1 и запустите `CMake: Выбор варианта`. Рекомендуем **RelWithDebInfo** для облегчения отладки, as Debug may sometimes cause obscure crashes.
 
-2. Now to select the build variant, press F1 and run `CMake: Select Variant`. We recommend **RelWithDebInfo** for easier debugging, as Debug may sometimes cause obscure crashes.
+![Картинка, на которой видно типы сборок на Windows: Debug, Release, MinSizeRel, and RelWithDebInfo](/assets/win_relwithdebinfo.png)
 
-![Image showing available build types on Windows: Debug, Release, MinSizeRel, and RelWithDebInfo](/assets/win_relwithdebinfo.png)
+3. Идентифицируйте CMake для расширения C++ как **Поставщик конфигурации**, нажав F1 и запустив `C/C++: Изменить конфигурации (пользовательский интерфейс)`. Пролистайте до раздела **Дополнительные параметры**, и в поле с загаловком "Поставщик конфигурации" вставьте `ms-vscode.cmake-tools`.
 
-3. Register CMake as the **Configuration Provider** for the C++ extension by pressing F1 and running `C/C++: Edit Configurations (UI)`. Scroll down to **Advanced** options, and set the Configuration Provider as `ms-vscode.cmake-tools`.
+![Картинка, на которой запущена команда в VS Code "C/C++: Изменить конфигурации (пользовательский интерфейс)"](/assets/win_usecmake.png)
 
-![Image showing the "C/C++: Edit Configurations (UI)" command being run in VS Code](/assets/win_usecmake.png)
+Прямо сейчас, соберите ваш мод нажав F1 и выбрав `CMake: Сборка`. **Вы должны сначала собрать мод, чтобы не было ошибок по типу `#include <Geode/modify/MenuLayer.hpp> not found`.** Если мод был успешно собран, код выхода должен быть 0. Если всё ещё есть какие-то ошибки после сборки мода, перезапустите VS Code.
 
-Now, build your mod by pressing F1 and running `CMake: Build`. **You must build your mod first so that errors such as `#include <Geode/modify/MenuLayer.hpp> not found` go away.** If the mod was built successfully, the exit code at the end should be 0. If any errors still persist after building the mod, try restarting VS Code.
-
-## VS Code on Mac
+## VS Code на Mac
 
 For VS Code on Mac, we recommend a few extensions:
  * [`clangd`](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd)
@@ -57,7 +56,7 @@ There are a few steps you should follow to get proper intellisense (you should o
 
 Now, build your mod by pressing F1 and running `CMake: Build`. **You must build your mod first so that errors such as `#include <Geode/modify/MenuLayer.hpp> not found` go away.** If the mod was built successfully, the exit code at the end should be 0. If any errors still persist after building the mod, try restarting VS Code.
 
-## VSCode on Linux
+## VSCode на Linux
 
 The setup is very similar to [VSCode on Mac](#vscode-on-mac), so you can follow that. The primary difference is you have to manually create a kit, which can be done like so:
 
@@ -128,10 +127,10 @@ If there are errors similar to VS Code (such as `#include <Geode/modify/MenuLaye
 
 # CLion
 
-* [CLion on Windows](#clion-on-windows)
-* [CLion on Linux](#clion-on-linux)
+* [CLion на Windows](#clion-на-windows)
+* [CLion на Linux](#clion-на-linux)
 
-## CLion on Windows
+## CLion на Windows
 
 No additional plugins are needed - the only thing you need to do is to configure your toolchain correctly. When you open your mod's directory in CLion for the first time, you'll be met with an Open Project Wizard:
 
@@ -172,9 +171,9 @@ Don't forget to reload CMake after you add new files to the project.
 
 ![Image showing how to rerun CMake in CLion](/assets/clion_reloadcmake.png)
 
-## CLion on Linux
+## CLion на Linux
 
-Pretty much the same as on [Windows](#clion-on-windows) except for setting up the toolchain.
+Pretty much the same as on [Windows](#clion-на-windows) except for setting up the toolchain.
 
 First step is to create an environment file with the following content:
 

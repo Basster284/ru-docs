@@ -45,16 +45,16 @@ order: 6
 
 ## VS Code на Mac
 
-For VS Code on Mac, we recommend a few extensions:
+Для VS Code на Mac, мы рекомендуем несколько расширений:
  * [`clangd`](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd)
  * [`CMake Tools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
- * [`Geode`](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) - Not required, but will provide some nice features.
+ * [`Geode`](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) - Необязательно, но имеет кучу крутых фишек.
 
-There are a few steps you should follow to get proper intellisense (you should only need to do these once per project, ideally):
+Выпоните несколько шагов, чтобы правильно настроить intellisense и завершение кода (в идеале это делается один раз на один проект):
 
-1. With VSCode open on your project, press F1 and run `CMake: Select a Kit`. You should choose **Clang**.
+1. С открытоым проектом в VS Code, нажмите F1 и запустите `CMake: Выбор варианта`. Выберите **Clang**.
 
-Now, build your mod by pressing F1 and running `CMake: Build`. **You must build your mod first so that errors such as `#include <Geode/modify/MenuLayer.hpp> not found` go away.** If the mod was built successfully, the exit code at the end should be 0. If any errors still persist after building the mod, try restarting VS Code.
+Прямо сейчас, соберите ваш мод нажав F1 и выбрав `CMake: Сборка`. **Вы должны сначала собрать мод, чтобы не было ошибок по типу `#include <Geode/modify/MenuLayer.hpp> not found`.** Если мод был успешно собран, код выхода должен быть 0. Если всё ещё есть какие-то ошибки после сборки мода, перезапустите VS Code.
 
 ## VSCode на Linux
 

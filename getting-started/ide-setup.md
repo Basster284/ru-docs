@@ -5,7 +5,7 @@ order: 6
 
 # Настройка IDE
 
-Вы можете использовать один из приведённых IDE для разработки модов на Geode. Использование IDE крайне рекомендуется, ибо оно даёт подказки к коду, intellisense и вприцнипе упрощает разработку модов. Мы рекомендуем VS Code, для которого мы имеем [отдельное расширение](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode).
+Вы можете использовать один из приведённых IDE для разработки модов на Geode. Использование IDE крайне рекомендуется, ибо оно даёт подказки к коду, intellisense и в прицнипе упрощает разработку модов. Мы рекомендуем VS Code, для которого мы имеем [отдельное расширение](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode).
 
 * [Visual Studio Code](#visual-studio-code)
 * [Visual Studio](#visual-studio)
@@ -13,17 +13,17 @@ order: 6
 
 # Visual Studio Code
 
-* [VSCode на Windows](#vscode-на-windows)
-* [VSCode на Mac](#vscode-на-mac)
-* [VSCode на Linux](#vscode-на-linux)
+* [VS Code на Windows](#vs-code-на-windows)
+* [VS Code на Mac](#vs-code-на-mac)
+* [VS Code на Linux](#vs-code-на-linux)
 
-## VSCode на Windows
+## VS Code на Windows
 
 Для VS Code, мы рекомендуем несколько расширений:
  * [`C/C++`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
  * [`CMake Tools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
  * [`Geode`](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) - Необязательно, но имеет кучу крутых фишек.
-Выпоните несколько шагов, чтобы правильно настроить intellisense и завершение кода (в идеале это делается один раз на один проект) 
+Выполните несколько шагов, чтобы правильно настроить intellisense и завершение кода (в идеале это делается один раз на один проект) 
 
 1. В VS Code откройте ваш проект, нажмите F1 и запустите `CMake: Выберите набор`. Это покажет список установленных на компьютере компиляторов.
 
@@ -50,19 +50,19 @@ order: 6
  * [`CMake Tools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
  * [`Geode`](https://marketplace.visualstudio.com/items?itemName=GeodeSDK.geode) - Необязательно, но имеет кучу крутых фишек.
 
-Выпоните несколько шагов, чтобы правильно настроить intellisense и завершение кода (в идеале это делается один раз на один проект):
+Выполните несколько шагов, чтобы правильно настроить intellisense и завершение кода (в идеале это делается один раз на один проект):
 
 1. С открытоым проектом в VS Code, нажмите F1 и запустите `CMake: Выбор варианта`. Выберите **Clang**.
 
 Прямо сейчас, соберите ваш мод нажав F1 и выбрав `CMake: Сборка`. **Вы должны сначала собрать мод, чтобы не было ошибок по типу `#include <Geode/modify/MenuLayer.hpp> not found`.** Если мод был успешно собран, код выхода должен быть 0. Если всё ещё есть какие-то ошибки после сборки мода, перезапустите VS Code.
 
-## VSCode на Linux
+## VS Code на Linux
 
-The setup is very similar to [VSCode on Mac](#vscode-on-mac), so you can follow that. The primary difference is you have to manually create a kit, which can be done like so:
+Процесс настройки очень похож на настройку [VS Code на Mac](#vs-code-на-mac), так что вы можете следовать тем же шагам. Главная разница в том, что вам самому нужно создать набор, что можно сделать так:
 
-1. Open the Command Palette (with F1 or Ctrl + Shift + P) and run the command **CMake: Edit User-Local CMake Kits** (requires the CMake Tools extension and an opened CMake project)
+1. Откройте Палитру команд (F1 или Ctrl + Shift + P) и запустите **CMake: Edit User-Local CMake Kits** (требует расширение CMake Tools и открытый в редакторе CMake проект)
 
-2. Add a new kit to the list:
+2. Добавьте новый набор в список:
 
 ```json
 {
@@ -81,9 +81,9 @@ The setup is very similar to [VSCode on Mac](#vscode-on-mac), so you can follow 
 }
 ```
 
-If the toolchain and/or splat weren't installed via `geode sdk install-linux`, modify the paths accordingly.
+Если набор инструментов и/или splat не были установлены не через `geode sdk install-linux`, измените пути на соответственные.
 
-Additionally, if you have Ninja installed, it's a good idea to set it as the generator instead of `make`, as it's much faster and uses multiple CPU cores by default unlike `make`. Add this to the JSON object above:
+А если у вас установлен Ninja то вы можете использовать его вместо `make`, так как он быстрее и использует несколько ядер процессора, в отличии от `make`. Добавьте в JSON это:
 
 ```json
 "preferredGenerator": {
@@ -91,39 +91,37 @@ Additionally, if you have Ninja installed, it's a good idea to set it as the gen
 }
 ```
 
-Now, you should be able to select the kit and build mods!
+Теперь вы можете выбрать набор и собирать моды!
 
-Additionally, while this does not affect 90% of people, if you use SIMD intrinsics or include a library that does, you might get strange compile/link errors with the configuration above. This can be fixed by changing the compiler from `clang` to `clang-cl`, like so:
+Кроме того, что не повлияет на 90% игроков, если вы используете SIMD-интринсики или библиотеку из-за которой у вас появляются ошибки при компиляции, смените `clang` на `clang-cl`:
 
-* `"toolchainFile"` to `${userHome}/.local/share/Geode/cross-tools/clang-msvc-sdk/clang-cl-msvc.cmake`
-* `"compilers"` / `"C"` to `/usr/bin/clang-cl`
-* `"compilers"` / `"CXX"` to `/usr/bin/clang-cl`
+* `"toolchainFile"` на `${userHome}/.local/share/Geode/cross-tools/clang-msvc-sdk/clang-cl-msvc.cmake`
+* `"compilers"` / `"C"` на `/usr/bin/clang-cl`
+* `"compilers"` / `"CXX"` на `/usr/bin/clang-cl`
 
 # Visual Studio
 
-Some Visual Studio experience is recommended before you try to use this, but if you don't then you'll probably be fine.
+Рекомендуется иметь опыт в Visual Studio перед тем как вы начнёте пользоваться ей, но если у вас опыта не было, ничего страшного.
 
-Modern Visual Studio can handle CMake projects automatically, so assuming your VS has CMake support, just open your mod project folder. You'll know it's working if a console opens up at the bottom of your Visual Studio, and it starts gathering information from CMake.
+Современная Visual Studio может управлять проектом CMake самостоятельно. Убедившись, что у вашего VS есть поддержка CMake, откройте папку с модом. Вы поймёте что всё работает, когда консоль появится снизу и начнёт получать информацию с CMake.
+Перед сборкой мода, измените эти настройки (их надо изменять каждый раз при создании нового мода):
 
-Now, before you build, make sure to change these settings (these need to be changed in every single project you make):
+1. Нажмите на "Конфигурация" (это раскрывающееся меню в верху вашего экрана, на котором написано "x64-Debug")
+2. Нажмите "Управление конфигурациями..." в раскрывшемся меню
 
-1. Click the Debug options (This is usually a drop-down menu at the top of your screen that says "x64-Debug")
-2. Click "Manage Configurations" inside that drop-down
+![Картинка, на которой нарисована кнопка "Управление конфигурациями..." в раскрывшемся меню](/assets/vs_manage_configurations.png)
 
-![Image showing the Manage Configurations button in the drop-down](/assets/vs_manage_configurations.png)
+3. Измените тип конфигурации на `Release` или `RelWithDebInfo`. Мы рекомендуем `RelWithDebInfo`, так как он облегчает отладку. **Вы не можете использовать `Debug`!**
+4. Убедитесь что у набора инструментов выбран `msvc_x86`
+5. По желанию поменяйте название конфига на что-нибудь дружелюбное по типу "deafult", "release" или подобное
+6. Ну и Ctrl + S прожмите чтобы изменения сохранить
+Пример рабочей конфигурации:
 
-3. Change config type to `Release` or `RelWithDebInfo`. We recommend `RelWithDebInfo`, since it provides easier debugging. **You cannot use `Debug` for this!**
-4. Make sure the toolset is set to `x64`
-5. At this point you can also give your configuration a friendly name such as "default" or "release" or something like that
-6. And make sure to use Ctrl + S to save your changes
+![Картинка с рабочим конфигом](/assets/vs_example_config.png)
 
-Here's an example of a configuration that should work:
+Как захотите сделать мод, жмите F7 или Ctrl + B (Если комбинации клавиш не работают, нажмите на Сборка сверху, а затем Собрать или Собрать всё)
 
-![Image showing a config that should work](/assets/vs_example_config.png)
-
-Now you may build your mod, by pressing F7 or Ctrl + B (If those keybinds don't work, click Build at the top, then either Build or Build All)
-
-If there are errors similar to VS Code (such as `#include <Geode/modify/MenuLayer.hpp> not found`) after you've built, restarting Visual Studio should make them go away.
+Если встречаются ошибки как на VS Code (по типу `#include <Geode/modify/MenuLayer.hpp> not found`) после сборки, перезапустите Visual Studio.
 
 # CLion
 
@@ -132,50 +130,50 @@ If there are errors similar to VS Code (such as `#include <Geode/modify/MenuLaye
 
 ## CLion на Windows
 
-No additional plugins are needed - the only thing you need to do is to configure your toolchain correctly. When you open your mod's directory in CLion for the first time, you'll be met with an Open Project Wizard:
+Для CLion нужно никаких плагинов - всё что нужно это правильно настроить набор инструментов. Когда вы открываете папку с модом в первый раз, вы встретите так называемого "Open Project Wizard":
 
-![Image showing the CLion Open Project Wizard](/assets/clion_openprojectwizard.png)
+![Картинка с открытым "Open Project Wizard"](/assets/clion_openprojectwizard.png)
 
-If this is the first time you're launching CLion, click the "Manage toolchains..." button, which will open a window where you can add a new toolchain.
+Если вы  запустили CLion в первый раз, нажмите на кнопку "Manage toolchains...", которая откроет окно где вы можете добавить новый набор инструментов.
 
-Here's an example of how to set up Visual Studio toolchain:
+Пример как настроить набор инструментов Visual Studio:
 
-![Image showing configured Visual Studio toolchain in CLion](/assets/clion_toolchainmsvc.png)
+![Картинка с настроенным набором инструментов Visual Studio в CLion](/assets/clion_toolchainmsvc.png)
 
-And here's an example of how to set up Clang toolchain:
+И как настроить набор инструментов Clang:
 
-![Image showing configured Clang toolchain in CLion](/assets/clion_toolchainllvm.png)
+![Картинка с настроенным набором инструментов Clang в CLion](/assets/clion_toolchainllvm.png)
 
-After that, in the Open Project Wizard, you need to make sure that:
+После этого, в Open Project Wizard, убедитесь что:
 
-1. Build type is set to `Release` or `RelWithDebInfo` (we recommend `RelWithDebInfo`, since `Debug` might cause obscure crashes)
-2. Toolchain is set to *Visual Studio* or *Clang/LLVM*
-3. Generator is set to *Visual Studio 17 2022* or *Ninja* (if you have it installed)
+1. Тип сборки установлен на `Release` или `RelWithDebInfo` (мы рекомендуем `RelWithDebInfo`, ибо с `Debug` могут быть проблемы)
+2. Набор инструментов это либо *Visual Studio*, либо *Clang/LLVM*
+3. Генератор это *Visual Studio 17 2022* или *Ninja* (если он установлен)
 
-In the end it should look like this:  
+В конце концов всё должно выглядеть так:  
 
-![Image showing the CLion Open Project Wizard set up for Geode](/assets/clion_openprojectwizardsetup.png)
+![Картинка с настроенным Open Project Wizard для Geode](/assets/clion_openprojectwizardsetup.png)
 
-Now you can press OK and CMake will run for the first time. Wait until it finishes, and you should see a dropdown in the top right corner of the window that says `NameOfTheMod` (or whatever you called your project).
-Click on it, and pick `NameOfTheMod_PACKAGE` instead, which will trigger post build steps and package/install the mod to Geometry Dash.
+Жмите OK и CMake запустится в первый раз. Подождите, пока он закончит и вы увидете раскрывающееся меню в правом углу экрана на котором написано `NameOfTheMod` (или как там вы его назвали).
+Нажмите на него, и выберите `NameOfTheMod_PACKAGE`, что начнёт шаги пост-сборки и установит моды в Geometry Dash.
 
-![Image showing the CLion Configuration dropdown](/assets/clion_addconfiguration.png)
+![Картинка с раскрывающимся меню настройки в CLion](/assets/clion_addconfiguration.png)
 
-Now click the hammer icon in the top right corner next to build the mod:
+Нажмите на иконку молота в правом углу рядом со сборкой мода:
 
-![Image showing the build button in CLion](/assets/clion_buildmod.png)
+![Картинка с кнопокй сборки в CLion](/assets/clion_buildmod.png)
 
-The build should end with a message saying `Build finished` and (assuming you ran `geode config setup` before) the mod should now be installed to Geometry Dash.
+Сборка должна завершиться с надписью `Build finished` и (убедившись что вы запускали `geode config setup` раннее) моддолжен автоматически установиться в Geometry Dash.
 
-Don't forget to reload CMake after you add new files to the project.
+Не забудьте перезагрузить CMake как только вы добавите новые файлы в проект.
 
-![Image showing how to rerun CMake in CLion](/assets/clion_reloadcmake.png)
+![Картинка на которой нарисована кнопки перезагрузки CMake в CLion](/assets/clion_reloadcmake.png)
 
 ## CLion на Linux
 
-Pretty much the same as on [Windows](#clion-на-windows) except for setting up the toolchain.
+Точно также как и на [Windows](#clion-на-windows) за исключением настройки набора инструментов.
 
-First step is to create an environment file with the following content:
+Сперва создадите файл окружения со следующим содержимым:
 
 ```bash
 export GEODE_SDK=$HOME/Documents/Geode
@@ -184,17 +182,17 @@ export CMAKE_TOOLCHAIN_FILE=$HOME/.local/share/Geode/cross-tools/clang-msvc-sdk/
 export HOST_ARCH=x86_64
 ```
 
-If the toolchain and/or splat weren't installed via `geode sdk install-linux`, modify the paths accordingly.
+Если набор инструментов и/или splat не были установлены через `geode sdk install-linux`, измените пути.
 
-Save it as `geode-env.sh` in your home directory (or wherever you want, just remember the path).
+Сохраните как `geode-env.sh` в вашей домашней директории (или где угодно, просто запомните путь).
 
-> :warning: If you're using a non default shell (like fish), you might need to edit the environment file to use the correct syntax. For example, fish uses `set -gx VAR value` instead of `export VAR=value`.
+> :warning: Если используете нестандартную оболочку (по типу fish), вам нужно настроить файл окружения для правильного синтаксиса. К примеру, fish использует `set -gx VAR value` вместо `export VAR=value`.
 
-Now, in the toolchain settings on the right side of the **Name** field, click the *Add environment* button and select the file you just created.
+Теперь, в настройке набора инструментов в правой части с полем **Name**, нажмите *Add environment* и выберите файл, который вы только что создали.
 
-![Image showing how to configure crosscompiler toolchain in CLion](/assets/clion_toolchainlinux.png)
+![Картинка на которой показано, как настраивать кросс-компилятор в CLion](/assets/clion_toolchainlinux.png)
 
-After that, you can follow the same steps as on Windows to build your mod.
+После этого, вы можете следовать тем же шагам что и на Windows для сборки мода.
 
-For some specific mods/libraries (most people won't need this), you might also want to add the clang-cl toolchain. Everything is the same as with clang, except you have to use the `clang-cl-msvc.cmake` toolchain file instead. (Copy the environment file and change the `CMAKE_TOOLCHAIN_FILE` variable to point to the `clang-cl-msvc.cmake` file.)  
-Also make sure you're using `clang-cl` as the compiler in the toolchain settings.
+Для некоторых модов/библиотек (большинству людей это не надо), вы может захотите настроить  набор инструментов clang-cl. Всё то же самое как с clang, за исключением что вам надо использовать файл набора инструментов `clang-cl-msvc.cmake`. (Скопируйте файл окружения и измените значение переменной `CMAKE_TOOLCHAIN_FILE` на расположение файла `clang-cl-msvc.cmake`.)  
+Также убедитесь что вы используете `clang-cl` в качестве компилятора в настройках набора инструментов.

@@ -1,22 +1,22 @@
 ---
-title: 4. What next?
+title: 4. Что дальше?
 order: 7
 ---
 
-# What next?
+# Что дальше?
 
-You should now be set on your journey to develope GD mods! If you are completely new to GD modding, a good place to start is [the Handbook](/handbook/chap0.md), which covers all of the basics of creating a Hello World.
+Теперь вы готовы к созданию модов для GD! Если вы в этом новичок, хорошее место для старта будет [справочник](/handbook/chap0.md), который затрагивает всю базу создания Hello World.
 
-## Geode Features
+## Фишки Geode
 
-Here are a list of Geode-specific concepts you might like to familiarize yourself with:
+Список Geode концептов с которыми вам бы лучше познакомиться:
 
- * [Hooking with `$modify`](/tutorials/modify.md) and [adding fields](/tutorials/fields.md)
- * [Using sprites and other resources](/mods/resources.md)
- * [Settings](/mods/settings.md) and [saving data](/mods/savedata.md)
- * [String IDs](/tutorials/nodetree.md) and [Layouts](/tutorials/layouts.md)
- * [Events](/tutorials/events.md)
- * [Using dependencies](/mods/dependencies.md)
- * [Publishing mods](/mods/publishing.md)
+ * [Хукинг `$modify`](/tutorials/modify.md) и [добавление полей](/tutorials/fields.md)
+ * [Использование спрайтов и других ресурсов](/mods/resources.md)
+ * [Настройки](/mods/settings.md) и [сохранение данных](/mods/savedata.md)
+ * [ID строк](/tutorials/nodetree.md) и [Макеты](/tutorials/layouts.md)
+ * [События](/tutorials/events.md)
+ * [Зависимости](/mods/dependencies.md)
+ * [Выпуск модов](/mods/publishing.md)
 
-The [Tutorials](/tutorials) category in general is a great source for information about working with Geode mods.
+Категория [туториалов](/tutorials) очень хороший источник информации о том, как работать с модами Geode.

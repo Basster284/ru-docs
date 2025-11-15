@@ -1,12 +1,12 @@
-# Buttons
+# Кнопки
 
-One of the most common UI elements in GD is the humble **button**. I'm sure you already know what it is, so let's get straight to the point. Buttons are most commonly created in the form of the `CCMenuItemSpriteExtra` class, which is a GD-specific derivation of the `CCMenuItemSprite` class. You can also use any class that inherits from `CCMenuItem` as a button. You can also technically make your wholly custom button system using the touch system, however that will not be explained in this document.
+Один из самых стандратных элементов интерфейса - простая **кнопка**. Я уверен что вы уже знаете о ней, так что перейдём сразу к делу. Обычно кнопки создаются в форме класса `CCMenuItemSpriteExtra`, что является специфичным для GD выводом класса `CCMenuItemSprite`. Вы также можете использовать любой класс который наследует из `CCMenuItem` как кнопка. А если захочется, вы можете сделать свою кастомную систему кнопок используя систему касаний, но в этом документе и речи про это не будет.
 
-Every button that inherits `CCMenuItem` **must be a child of a `CCMenu` to work**. This means that if you add a button as a child to a `CCLayer`, you will find that it can't be clicked.
+Каждая кнопка, которая наследует `CCMenuItem` **должна быть дочерним классом `CCMenu`**. То есть, если вы добавите кнопку как наследователь  `CCLayer`, она просто не будет работать.
 
-The first argument of `CCMenuItemSpriteExtra` is a `CCNode*` parameter. This is the texture of the button; it can be any `CCNode`, like a label or even a whole layer, but usually most people use a sprite.
+Первый аргумент `CCMenuItemSpriteExtra` - параметр `CCNode*`. Это текстура кнопки; любой `CCNode`, по типу табличка (label) или целый слой, но большинство разработчиков используют спрайт.
 
-If you want to create a button with some text, the most common option is the `ButtonSprite` class. If you want to create something like a circle button (like the 'New' button in GD), you can either use `CCSprite` or [the Geode-specific `CircleButtonSprite` class](#circle-button-sprites).
+Если вы хотите создать кнопку с текстом, самым стандартным решением будет класс `ButtonSprite`. А если хочется круглую кнопку (типа 'New' кнопки в GD), используйте `CCSprite` или [специальный от Geode класс `CircleButtonSprite`](#circle-button-sprites).
 
 ```cpp
 bool MyLayer::init() {
@@ -18,18 +18,18 @@ bool MyLayer::init() {
         spr, this, nullptr
     );
 
-    // some CCMenu*
+    // CCMenu*
     menu->addChild(btn);
 
     // ...
 }
 ```
 
-This creates a button with the text `Hi mom!`.
+Это создаст кнопку с текстом `Hi mom!`.
 
-## Callbacks
+## Вызовы
 
-Button callbacks are called **menu selectors**, and are passed as the third argument to `CCMenuItemSpriteExtra::create`. Menu selectors are non-static class member functions that return `void` and take a single `CCObject*` parameter. For example, this is a menu selector:
+Ало? Вызовы кнопок называют **селектроами меню**, и они проходят через третий аргумент в `CCMenuItemSpriteExtra::create`. Селекторы меню - это не статичные функции классов которые возвращают `void` и принимают единственный параметр `CCObject*`. Пример селектора меню:
 
 ```cpp
 class MyLayer : public CCLayer {
@@ -38,7 +38,7 @@ public:
 };
 ```
 
-It is conventional to have all menu selectors names be in the form of `onSomething`. To pass a menu selector to the button, pass its fully qualified name to the `menu_selector` macro:
+Принято иметь имена всех селекторов меню в форме `onSomething`. Чтобы добавить кнопку в селектор меню, проведите полное имя селектора меню в макрос `menu_selector`:
 
 ```cpp
 class MyLayer : public CCLayer {
@@ -47,7 +47,7 @@ protected:
         // ...
 
         auto btn = CCMenuItemSpriteExtra::create(
-            /* sprite */,
+            /* спрайт */,
             this,
             menu_selector(MyLayer::onButton)
         );
@@ -62,29 +62,28 @@ public:
 };
 ```
 
-Inside the `onButton` function, you have access to the class `this` pointer. The `sender` parameter is a pointer to the button that was clicked. You can cast it back to the `CCMenuItemSpriteExtra` class using `static_cast`:
+Внутри функции `onButton`, у вас есть доступ к указателю класса `this`. Параметр `sender` - это указатель к кнопке, которая была только что нажата. Вы можете обратно превратить кнопку в класс `CCMenuItemSpriteExtra` используя `static_cast`:
 
 ```cpp
 class MyLayer : public CCLayer {
     void onButton(CCObject* sender) {
         std::cout << "Button clicked!\n";
         auto btn = static_cast<CCMenuItemSpriteExtra*>(sender);
-        // Do something with the button
+        // Делать что-то с кнопкой
     }
 };
 ```
 
-> :warning: You can also use `reinterpret_cast` instead of `static_cast`, but using `reinterpret_cast` is generally considered bad practice.
+> :warning: Использовать `reinterpret_cast` вместо `static_cast` можно, но на практике так делать лучше не надо.
 
-## Example
+## Пример
 
-Here is the popular click counter example in cocos2d:
+Пример популярного счётчика кликов в cocos2d:
 
 ```cpp
 class MyLayer : public CCLayer {
 protected:
-    // Class member that stores how many times 
-    // the button has been clicked
+    // Класс, хранящий количество кликов
     size_t m_clicked = 0;
 
     bool init() {
@@ -107,12 +106,12 @@ protected:
     }
 
     void onClick(CCObject* sender) {
-        // Increment click count
+        // Увеличить количество кликов
         m_clicked++;
 
         auto btn = static_cast<CCMenuItemSpriteExtra*>(sender);
 
-        // getNormalImage returns the sprite of the button
+        // getNormalImage возвращает спрайт кнопки
         auto spr = static_cast<ButtonSprite*>(btn->getNormalImage());
         spr->setString(CCString::createWithFormat(
             "Clicked %d times", m_clicked
@@ -121,15 +120,14 @@ protected:
 };
 ```
 
-## Passing more parameters to callbacks
+## Больше параметров в вызовах
 
-One of the most common problems encountered when using menu selectors is situations where you want to pass more parameters to a function. For example, what if in the click counter example we also wanted to add a decrement button? We could of course just refreace the whole `onClick` function, but that would be quite wasteful. Instead, we can use **tags**.
+Одна из распространённых проблем при использовании селекторов меню это когда вы даёте больше аргуметов в функции. Например, что если в счётчик кликов мы хотим добавить кнопку уменьшения количества кликов? Нет, мы конечно можем переделать весь `onClick`, но это немного бесполезно. Вместо этого, мы используем **тэги**.
 
 ```cpp
 class MyLayer : public CCLayer {
 protected:
-    // Class member that stores how many times 
-    // the button has been clicked
+    // Класс, хранящий количество кликов
     size_t m_clicked = 0;
 
     bool init() {
@@ -162,12 +160,12 @@ protected:
     }
 
     void onClick(CCObject* sender) {
-        // Increment or decrement click count
+        // Увеличить количество кликов
         m_clicked += sender->getTag();
 
         auto btn = static_cast<CCMenuItemSpriteExtra*>(sender);
 
-        // getNormalImage returns the sprite of the button
+        // getNormalImage возвращает спрайт кнопки
         auto spr = static_cast<ButtonSprite*>(btn->getNormalImage());
         spr->setString(CCString::createWithFormat(
             "Clicked %d times", m_clicked
@@ -176,17 +174,16 @@ protected:
 };
 ```
 
-If you want to pass something like strings, you should use `setUserObject` instead.
+Если захотите передать что-то типо строк, используйте `setUserObject`.
 
-## Passing non-integer parameters to callbacks
+## Передача не числовых параметрам вызовам
 
-If you want to pass something to a callback that can't be passed through tags like a string, use the `setUserObject` method.
+Если вы хотите передать то что не передаётся через тэги, к примеру строки, используйте `setUserObject`.
 
 ```cpp
 class MyLayer : public CCLayer {
 protected:
-    // Class member that stores how many times 
-    // the button has been clicked
+    // Класс, хранящий количество кликов
     size_t m_clicked = 0;
 
     bool init() {
@@ -219,14 +216,14 @@ protected:
     }
 
     void onClick(CCObject* sender) {
-        // Get the user object
+        // Получить объект пользователя
         auto obj = static_cast<CCNode*>(sender)->getUserObject();
-        // Cast it to a CCString and get its data
+        // Превратить в CCString и получить данные
         auto str = static_cast<CCString*>(obj)->getCString();
 
         auto btn = static_cast<CCMenuItemSpriteExtra*>(sender);
 
-        // getNormalImage returns the sprite of the button
+        // getNormalImage возвращает спрайт кнопки
         auto spr = static_cast<ButtonSprite*>(btn->getNormalImage());
         spr->setString(CCString::createWithFormat(
             "Clicked %s", str
@@ -243,15 +240,15 @@ struct MyParameters : public CCObject {
     int m_number;
 
     MyParameters(std::string const& str, int number) : m_string(str), m_number(number) {
-        // Always remember to call autorelease on your classes!
+        // Не забудьте вызвать autorelease в ваших классах!
         this->autorelease();
     }
 };
 
-// When creating your button:
+// Когда создаёте кнопку:
 btn->setUserObject(new MyParameters("Hi!", 7));
 
-// In the callback:
+// В вызове:
 auto parameters = static_cast<MyParameters*>(
     static_cast<CCNode*>(sender)->getUserObject()
 );
